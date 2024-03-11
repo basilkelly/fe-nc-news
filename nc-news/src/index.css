@@ -2,6 +2,17 @@
   background-color: rgb(142, 185, 185);
   border-color: blueviolet;
 }
- .home{
+.home {
   background-color: rgb(142, 185, 185);
- }
+}
+
+.single-article {
+  background-color: rgb(142, 185, 185);
+}
+
+.header {
+  background-color:rgb(255, 193, 193)
+}
+.header-nav {
+  background-color: blue;
+}
