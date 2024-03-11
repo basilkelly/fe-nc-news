@@ -17,6 +17,7 @@ const ArticlesList = () => {
           return (
             <ArticlesCard
               key={article.article_id}
+              article_id={article.article_id}
               title={article.title}
               topic={article.topic}
               author={article.author}
