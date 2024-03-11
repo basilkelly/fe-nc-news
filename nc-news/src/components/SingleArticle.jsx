@@ -15,7 +15,7 @@ const SingleArticle = () => {
     <>
     <div className="single-article">
         <Link to="/articles">
-        <button >Go back</button> </Link>
+        <button >Go back </button> </Link>
         <h2>{article.title}</h2>
         <p>Topic: {article.topic}</p>
         <p>Author: {article.author}</p>        
