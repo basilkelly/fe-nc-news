@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 import ArticlesCard from "./ArticlesCard";
 import { getAllArticles } from "../api";
+import Loading from "./Loading";
 
 const ArticlesList = () => {
+  const [isLoading, setIsloading] = useState(true)
   const [articles, setArticles] = useState([]);
+
   useEffect(() => {
     getAllArticles().then((articlesFromApi) => {
       setArticles(articlesFromApi);
+      setIsloading(false)
     });
   }, []);
-  return (
+  return isLoading ? (<Loading/>) :(
     <div>
       <h2>Todays Articles</h2>
       <ul>
