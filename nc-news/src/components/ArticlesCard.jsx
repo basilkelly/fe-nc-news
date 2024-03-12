@@ -18,7 +18,7 @@ const ArticlesCard = ({
         <h2>{title}</h2></Link>
         <p>Author: {author}</p>
         <p>Topic: {topic}</p>
-        <p>Created: {Date(created)}</p>
+        <p>Created: {created}</p>
         <img src={image} alt="image relevant to the article" width={300} />
         
         <p>
