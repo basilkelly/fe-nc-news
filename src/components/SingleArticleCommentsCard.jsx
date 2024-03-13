@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { getCommentsByArticleId } from "../api";
+import React from "react";
 
 const SingleArticleCommentsCard = ({ body, author, votes, created }) => {
 
