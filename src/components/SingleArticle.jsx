@@ -11,6 +11,13 @@ import Loading from "./Loading";
 import CommentAdder from "./CommentAdder";
 
 const SingleArticle = () => {
+
+  const removeFeedbackMsg = () => {
+    let feedbackMsg = document.getElementById("comment-delete-message");
+    feedbackMsg.style.visibility = "hidden";
+  }
+
+
   const { article_id } = useParams();
   const [article, setArticle] = useState([]);
   const [comments, setComments] = useState([]);
@@ -47,15 +54,11 @@ const SingleArticle = () => {
     });
   }, []);
 
-
-
- 
- 
-
   return isLoading ? (
     <Loading />
   ) : (
-    <>
+      <>
+        
       <div className="single-article">
         <Link to="/articles">
           <button>Go back </button>{" "}
@@ -84,7 +87,11 @@ const SingleArticle = () => {
         <CommentAdder setComments={setComments} />
       <p id="success">Your comment has been posted!</p>
       <div>
-        <h2>Comments</h2>
+          <h2>Comments</h2>
+          
+          <div><p id="comment-delete-message"> comment deleted <button onClick={removeFeedbackMsg} >x</button></p>
+            
+          </div>
 
         <ul>
           {comments.map((comment) => {
@@ -95,6 +102,8 @@ const SingleArticle = () => {
                 author={comment.author}
                 votes={comment.votes}
                 created={comment.created_at}
+                id={comment.comment_id}
+                setComments={setComments}
               />
             );
           })}

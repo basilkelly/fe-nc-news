@@ -28,9 +28,13 @@ const patchArticleByID = (article_id) => {
 const postComment = (comment, article_id) => {
   return api
     .post(`articles/${article_id.article_id}/comments`, comment)
-    .then(( data ) => {
+    .then((data) => {
       return data;
-    })
+    });
+};
+
+const deleteCommentById = (comment) => {
+  return api.delete(`comments/${comment}`);
 };
 
 export {
@@ -39,4 +43,5 @@ export {
   getCommentsByArticleId,
   patchArticleByID,
   postComment,
+  deleteCommentById,
 };

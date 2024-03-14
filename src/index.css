@@ -1,29 +1,27 @@
 .article-card {
   background-color: rgb(142, 185, 185);
   border: 1px solid black;
-  margin:3px;
-  padding:0.5em;
-  list-style-type:none;
-
+  margin: 3px;
+  padding: 0.5em;
+  list-style-type: none;
 }
 
 .home {
   background-color: rgb(142, 185, 185);
   border: 1px solid black;
-  padding:0.5em;
-
+  padding: 0.5em;
 }
 
 .single-article {
   background-color: rgb(142, 185, 185);
   border: 1px solid black;
-  padding:0.5em;
+  padding: 0.5em;
 }
 
 .header {
-  background-color:rgb(255, 193, 193);
+  background-color: rgb(255, 193, 193);
   padding: 3px;
-  margin:3px;
+  margin: 3px;
   border: 1px solid black;
 }
 
@@ -31,35 +29,44 @@
   background-color: blue;
 }
 
-.comment{
+.comment {
   background-color: aquamarine;
-  list-style-type:none;
+  list-style-type: none;
   border: 1px solid black;
-  padding:5px;
+  padding: 5px;
   margin: 10px;
 }
-.comment-body{
-  background-color:#b3ffdc;
+.comment-body {
+  background-color: #b3ffdc;
   border: 1px solid black;
-
 }
 
-.article-footer{
+.article-footer {
   border: 1px solid black;
   background-color: rgb(207, 207, 160);
-  padding:0.5em;
+  padding: 0.5em;
 }
 
-.upvote-button{
+.upvote-button {
   background-color: rgb(134, 202, 134);
 }
 
-#success{
+#success {
   visibility: hidden;
   background-color: rgb(87, 84, 84);
   color: rgb(0, 250, 0);
 }
 
-.showsuccess{
+.showsuccess {
   visibility: visible;
+}
+
+#comment-delete-message {
+  background: #a50000;
+  height: 60px;
+  left: 0%;
+  padding: 10px;
+  visibility: hidden;
+  position: fixed;
+  top: 25px;
 }
