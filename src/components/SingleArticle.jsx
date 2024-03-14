@@ -7,11 +7,14 @@ import {
 } from "../api";
 import { Link } from "react-router-dom";
 import SingleArticleCommentsCard from "./SingleArticleCommentsCard";
+import Loading from "./Loading";
+import CommentAdder from "./CommentAdder";
 
 const SingleArticle = () => {
   const { article_id } = useParams();
   const [article, setArticle] = useState([]);
   const [comments, setComments] = useState([]);
+  const [isLoading, setIsloading] = useState(true);
 
   useEffect(() => {
     getArticleById(article_id).then((articleFromApi) => {
@@ -40,10 +43,18 @@ const SingleArticle = () => {
   useEffect(() => {
     getCommentsByArticleId(article_id).then((commentFromApi) => {
       setComments(commentFromApi);
+      setIsloading(false);
     });
   }, []);
 
-  return (
+
+
+ 
+ 
+
+  return isLoading ? (
+    <Loading />
+  ) : (
     <>
       <div className="single-article">
         <Link to="/articles">
@@ -69,10 +80,12 @@ const SingleArticle = () => {
             {article.votes} 👍
           </button>
         </div>
-      </div>
-
+        </div>
+        <CommentAdder setComments={setComments} />
+      <p id="success">Your comment has been posted!</p>
       <div>
         <h2>Comments</h2>
+
         <ul>
           {comments.map((comment) => {
             return (

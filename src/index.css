@@ -53,3 +53,13 @@
 .upvote-button{
   background-color: rgb(134, 202, 134);
 }
+
+#success{
+  visibility: hidden;
+  background-color: rgb(87, 84, 84);
+  color: rgb(0, 250, 0);
+}
+
+.showsuccess{
+  visibility: visible;
+}
