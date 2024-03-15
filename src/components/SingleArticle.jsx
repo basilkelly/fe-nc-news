@@ -12,10 +12,14 @@ import CommentAdder from "./CommentAdder";
 
 const SingleArticle = () => {
   const removeFeedbackMsg = () => {
-    let feedbackMsg = document.getElementById("comment-delete-message");
-    feedbackMsg.style.visibility = "hidden";
+    setDeleteFeedbackMsg(() => {
+      return "comment-delete-message-off";
+    });
   };
 
+  const [deleteFeedbackMsg, setDeleteFeedbackMsg] = useState(
+    "comment-delete-message-off"
+  );
   const { article_id } = useParams();
   const [article, setArticle] = useState([]);
   const [comments, setComments] = useState([]);
@@ -87,7 +91,7 @@ const SingleArticle = () => {
         <h2>Comments</h2>
 
         <div>
-          <p id="comment-delete-message">
+          <p id={deleteFeedbackMsg}>
             {" "}
             comment deleted <button onClick={removeFeedbackMsg}>x</button>
           </p>
@@ -104,6 +108,8 @@ const SingleArticle = () => {
                 created={comment.created_at}
                 id={comment.comment_id}
                 setComments={setComments}
+                deleteFeedbackMsg={deleteFeedbackMsg}
+                setDeleteFeedbackMsg={setDeleteFeedbackMsg}
               />
             );
           })}
