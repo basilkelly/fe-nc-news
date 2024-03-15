@@ -30,9 +30,9 @@ const CommentAdder = ({ setComments }) => {
 
   return (
     <div>
-      <h3>post a comment</h3>
       <p></p>
       <form onSubmit={handleSubmit}>
+        <label htmlFor="body">Post a Comment:</label>
         <input
           id="body"
           type="text"
@@ -40,7 +40,7 @@ const CommentAdder = ({ setComments }) => {
           onChange={handleChange}
           value={body}
         ></input>
-        <button>post comment</button>
+        <button>send</button>
       </form>
     </div>
   );
