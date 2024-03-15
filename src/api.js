@@ -37,6 +37,12 @@ const deleteCommentById = (comment) => {
   return api.delete(`comments/${comment}`);
 };
 
+const getArticlesByQuery = (topic) => {
+  return api.get(`articles?topic=${topic}`).then(({ data }) => {
+    return data;
+  });
+};
+
 export {
   getAllArticles,
   getArticleById,
@@ -44,4 +50,5 @@ export {
   patchArticleByID,
   postComment,
   deleteCommentById,
+  getArticlesByQuery,
 };
