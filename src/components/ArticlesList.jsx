@@ -34,7 +34,7 @@ const ArticlesList = () => {
   return isLoading ? (
     <Loading />
   ) : (
-    <div>
+      <div>
       <h2>Todays Articles</h2>
       <Topics setNewQuery={setNewQuery} newQuery={newQuery} />
       <ul>

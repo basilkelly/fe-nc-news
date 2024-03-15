@@ -61,12 +61,21 @@
   visibility: visible;
 }
 
-#comment-delete-message {
+#comment-delete-message-off {
   background: #a50000;
   height: 60px;
   left: 0%;
   padding: 10px;
   visibility: hidden;
+  position: fixed;
+  top: 25px;
+}
+#comment-delete-message-on {
+  background: #a50000;
+  height: 60px;
+  left: 0%;
+  padding: 10px;
+  visibility: visible;
   position: fixed;
   top: 25px;
 }

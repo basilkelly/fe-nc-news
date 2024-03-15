@@ -10,6 +10,8 @@ const SingleArticleCommentsCard = ({
   created,
   id,
   setComments,
+  deleteFeedbackMsg,
+  setDeleteFeedbackMsg
 }) => {
   const { loggedInUser } = useContext(UserContext);
   let isPostedByUser = false;
@@ -26,7 +28,12 @@ const SingleArticleCommentsCard = ({
           <p>Time posted: {created}</p>
           <p className="comment-body">{body}</p>
           <p>Votes: {votes}</p>
-          <DeleteComment comment_id={id} setComments={setComments} />
+          <DeleteComment
+            comment_id={id}
+            setComments={setComments}
+            deleteFeedbackMsg={deleteFeedbackMsg}
+            setDeleteFeedbackMsg={setDeleteFeedbackMsg}
+          />
         </li>
       </div>
     </>
