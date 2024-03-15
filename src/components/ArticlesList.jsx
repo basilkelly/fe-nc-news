@@ -15,6 +15,7 @@ const ArticlesList = () => {
   const nav = useNavigate();
   
   useEffect(() => {
+    setIsloading(true)
     setNewQuery(currentParam);
     if (newQuery === null || newQuery === "") {
       nav(`/articles`);
