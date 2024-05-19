@@ -37,10 +37,48 @@ const deleteCommentById = (comment) => {
   return api.delete(`comments/${comment}`);
 };
 
-const getArticlesByQuery = (topic) => {
-  return api.get(`articles?topic=${topic}`).then(({ data }) => {
-    return data;
-  });
+const getArticlesByQuery = (topic, sort_by, order) => {
+  if (order.length === 0) {
+    if (!topic && sort_by.length != 0) {
+      return api.get(`articles?sort_by=${sort_by}`).then(({ data }) => {
+        return data;
+      });
+    }
+    if (!sort_by) {
+      return api.get(`articles?topic=${topic}`).then(({ data }) => {
+        return data;
+      });
+    }
+    if (topic && sort_by) {
+      return api
+        .get(`articles?topic=${topic}&sort_by=${sort_by}`)
+        .then(({ data }) => {
+          return data;
+        });
+    }
+  } else if (!topic && sort_by.length === 0) {
+    return api.get(`articles?order=${order}`).then(({ data }) => {
+      return data;
+    });
+  } else if (!sort_by) {
+    return api
+      .get(`articles?topic=${topic}&order=${order}`)
+      .then(({ data }) => {
+        return data;
+      });
+  } else if (!topic && sort_by) {
+    return api
+      .get(`articles?sort_by=${sort_by}&order=${order}`)
+      .then(({ data }) => {
+        return data;
+      });
+  } else if (topic && sort_by) {
+    return api
+      .get(`articles?topic=${topic}&sort_by=${sort_by}&order=${order}`)
+      .then(({ data }) => {
+        return data;
+      });
+  }
 };
 
 export {
