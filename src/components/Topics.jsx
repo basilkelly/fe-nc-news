@@ -1,34 +1,35 @@
 import React from "react";
-import { getArticlesByQuery } from "../api";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const Topics = ({ setNewQuery, newQuery }) => {
+const Topics = ({ setNewQuery }) => {
   const nav = useNavigate();
 
   const handleClick = (e) => {
-    if (e.target.value != null) {
+    if (e.target.value != "all") {
       setNewQuery(() => {
         return e.target.value;
       });
       nav(`/articles?topic=${e.target.value}`);
-    } else {
+    }
+    if (e.target.value === "all") {
       setNewQuery(null);
+      nav(`/articles`);
     }
   };
 
   return (
     <div>
-      <button value={null} onClick={handleClick}>
-        all
+      <button value="all" onClick={handleClick}>
+        All
       </button>
       <button value="coding" onClick={handleClick}>
-        coding
+        Coding
       </button>
       <button value="cooking" onClick={handleClick}>
-        cooking
+        Cooking
       </button>
       <button value="football" onClick={handleClick}>
-        football
+        Football
       </button>
     </div>
   );

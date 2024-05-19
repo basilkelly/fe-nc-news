@@ -2,12 +2,11 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import ArticlesList from "./components/ArticlesList";
 import SingleArticle from "./components/SingleArticle";
 import CommentAdder from "./components/CommentAdder";
 import UserContext from "./contexts/User";
 import { useState } from "react";
-import Topics from "./components/Topics";
+import ArticlesPage from "./components/ArticlesPage";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
@@ -23,7 +22,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/articles" element={<ArticlesList />} />
+        <Route path="/articles" element={<ArticlesPage/>} />
         <Route path="/articles/:article_id" element={<SingleArticle />} />
         <Route
           path="articles/:article_id/postcomment"
