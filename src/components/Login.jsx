@@ -9,7 +9,7 @@ const Login = () => {
   const [UsersList, setUsersList] = useState(null);
   const [isLoading, setIsloading] = useState(false);
   const [hasUsersList, setHasUsersList] = useState(false);
-  const [errMessage, setErrorMessage] = useState([]);
+  const [errorMessage, setErrorMessage] = useState([]);
   const [user, setUser] = useContext(UserContext);
 
   const handleFormChange = (event) => {
@@ -60,7 +60,7 @@ const Login = () => {
   return (
     <div>
       <div>
-        <p>{errMessage.toString()}</p>
+        <p>{errorMessage.toString()}</p>
       </div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="body">Enter your username:</label>
