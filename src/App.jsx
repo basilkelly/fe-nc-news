@@ -7,27 +7,22 @@ import CommentAdder from "./components/CommentAdder";
 import UserContext from "./contexts/User";
 import { useState } from "react";
 import ArticlesPage from "./components/ArticlesPage";
+import Login from "./components/Login";
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({
-    username: "tickle122",
-    name: "Tom Tickle",
-    avatar_url:
-      "https://vignette.wikia.nocookie.net/mrmen/images/d/d6/Mr-Tickle-9a.png/revision/latest?cb=20180127221953",
-  });
-  //replace default with guest
-
+  const [user, setUser] = useState("Guest");
   return (
-    <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
+    <UserContext.Provider value={[user, setUser]}>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/articles" element={<ArticlesPage/>} />
+        <Route path="/articles" element={<ArticlesPage />} />
         <Route path="/articles/:article_id" element={<SingleArticle />} />
         <Route
           path="articles/:article_id/postcomment"
           element={<CommentAdder />}
         />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </UserContext.Provider>
   );

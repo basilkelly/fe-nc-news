@@ -5,20 +5,19 @@ import UserContext from "../contexts/User";
 import "../index.css";
 
 const CommentAdder = ({ setComments }) => {
-  const { loggedInUser } = useContext(UserContext);
+  const [user] = useContext(UserContext);
   const [body, setBody] = useState("");
   const { article_id } = useParams();
-
-  const handleChange = (event) => {
+  const handleFormChange = (event) => {
     if (event.target.id === "body") {
       setBody(event.target.value);
     }
   };
-  const handleSubmit = (event) => {
+  const handleFormSubmit = (event) => {
     event.preventDefault();
 
     const newComment = {
-      username: loggedInUser.username,
+      username: user.username,
       body: body,
     };
     setComments((currComments) => {
@@ -28,16 +27,20 @@ const CommentAdder = ({ setComments }) => {
     postComment(newComment, { article_id: article_id });
   };
 
-  return (
+  return user.username === undefined ? (
+    <div>
+      <p>Sign in to post a Comment</p>
+    </div>
+  ) : (
     <div>
       <p></p>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="body">Post a Comment:</label>
+      <form onSubmit={handleFormSubmit}>
+        <label htmlFor="body">Post a Comment as {user.username}:</label>
         <input
           id="body"
           type="text"
           required
-          onChange={handleChange}
+          onChange={handleFormChange}
           value={body}
         ></input>
         <button>send</button>

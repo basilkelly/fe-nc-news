@@ -81,6 +81,12 @@ const getArticlesByQuery = (topic, sort_by, order) => {
   }
 };
 
+const getAllUsers = () => {
+  return api.get("/users").then(({ data }) => {
+    return data;
+  });
+};
+
 export {
   getAllArticles,
   getArticleById,
@@ -89,4 +95,5 @@ export {
   postComment,
   deleteCommentById,
   getArticlesByQuery,
+  getAllUsers,
 };

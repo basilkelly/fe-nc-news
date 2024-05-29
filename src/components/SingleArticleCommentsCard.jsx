@@ -13,10 +13,10 @@ const SingleArticleCommentsCard = ({
   deleteFeedbackMsg,
   setDeleteFeedbackMsg
 }) => {
-  const { loggedInUser } = useContext(UserContext);
+  const  [user]  = useContext(UserContext);
   let isPostedByUser = false;
 
-  if (loggedInUser.username === author) {
+  if (user.username === author) {
     isPostedByUser = true;
   }
 
