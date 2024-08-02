@@ -52,8 +52,8 @@ const ArticlesPage = () => {
   }, [newQuery, sortBy, orderBy]);
 
   return (
-    <div>
-      <h2>Todays Articles</h2>
+    <div className="articles-page">
+      <h2>Articles</h2>
       <Topics setNewQuery={setNewQuery} />
       <ArticleSorter
         setSortBy={setSortBy}
@@ -64,7 +64,8 @@ const ArticlesPage = () => {
         setOrderBy={setOrderBy}
         orderBy={orderBy}
       ></ArticlesOrderBy>
-      <ArticlesList articles={articles} isLoading={isLoading} />
+      <div className="articles-list">
+      <ArticlesList articles={articles} isLoading={isLoading} /></div>
     </div>
   );
 };

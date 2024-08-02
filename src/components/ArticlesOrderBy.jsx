@@ -7,9 +7,9 @@ const ArticlesOrderBy = ({ setOrderBy, orderBy }) => {
     });
   };
   return (
-    <div>
+    <div className="sort-dropdowns">
       <form>
-        <label htmlFor="order-by-form">Order Articles:</label>
+        <label htmlFor="order-by-form">Order: </label>
         <select
           id="order-by-form"
           name="order-by-form"

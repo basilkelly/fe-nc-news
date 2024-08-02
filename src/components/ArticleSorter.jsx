@@ -8,9 +8,9 @@ const ArticleSorter = ({ setSortBy, sortBy, newQuery }) => {
   };
 
   return newQuery ? (
-    <div>
-      <form>
-        <label htmlFor="sort-by-form">Sort Articles:</label>
+    <div className="sort-dropdowns">
+      <form >
+        <label  htmlFor="sort-by-form">Sort by: </label>
         <select
           id="sort-by-form"
           name="sort-by-form"
@@ -25,9 +25,9 @@ const ArticleSorter = ({ setSortBy, sortBy, newQuery }) => {
       </form>
     </div>
   ) : (
-    <div>
+    <div className="sort-dropdowns">
       <form>
-        <label htmlFor="sort-by-form">Sort Articles:</label>
+        <label htmlFor="sort-by-form">Sort by: </label>
         <select
           id="sort-by-form"
           name="sort-by-form"
