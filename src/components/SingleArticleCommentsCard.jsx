@@ -11,21 +11,28 @@ const SingleArticleCommentsCard = ({
   id,
   setComments,
   deleteFeedbackMsg,
-  setDeleteFeedbackMsg
+  setDeleteFeedbackMsg,
 }) => {
-  const  [user]  = useContext(UserContext);
+  const [user] = useContext(UserContext);
   let isPostedByUser = false;
 
   if (user.username === author) {
     isPostedByUser = true;
   }
 
+  function dateFormat(created) {
+    return new Date(created).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  }
   return isPostedByUser ? (
     <>
       <div>
         <li className="comment">
-          <h3>{author} </h3>
-          <p>Time posted: {created}</p>
+          <h3 className="comment-author">{author} </h3>
+          <p className="comment-time">Time posted: {dateFormat(created)}</p>
           <p className="comment-body">{body}</p>
           <p>Votes: {votes}</p>
           <DeleteComment
@@ -41,10 +48,15 @@ const SingleArticleCommentsCard = ({
     <>
       <div>
         <li className="comment">
-          <h3>{author} </h3>
-          <p>Time posted: {created}</p>
+          <h3 className="comment-author">{author} </h3>
+          <p className="comment-time">Time posted: {dateFormat(created)}</p>
           <p className="comment-body">{body}</p>
-          <p>Votes: {votes}</p>
+          {console.log(votes)}
+          {votes >= 0 ? (
+            <p className="positive-likes"> {votes} 👍</p>
+          ) : (
+            <p className="negative-likes"> {votes} 👎</p>
+          )}
         </li>
       </div>
     </>

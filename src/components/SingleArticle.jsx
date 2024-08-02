@@ -49,6 +49,14 @@ const SingleArticle = () => {
     });
   };
 
+  function dateFormat(created) {
+    return new Date(created).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  }
+
   useEffect(() => {
     getCommentsByArticleId(article_id).then((commentFromApi) => {
       setComments(commentFromApi);
@@ -67,22 +75,24 @@ const SingleArticle = () => {
         <h2>{article.title}</h2>
         <p>Topic: {article.topic}</p>
         <p>Author: {article.author}</p>
-        <p>Created: {article.created_at}</p>
+        <p>Created: {dateFormat(article.created_at)}</p>
         <img
           src={article.article_img_url}
           alt="image relevant to the article"
         />
         <p>{article.body}</p>
-        <div className="article-footer">
-          <p>Comment count: {article.comment_count}</p>
-        </div>
-        <div>
-          <button
-            className="upvote-button"
-            onClick={() => upvote(article.article_id)}
-          >
-            {article.votes} 👍
-          </button>
+        <div className="single-article-footer">
+          <p className="single-article-footer-comment-count">
+            Comment count: {article.comment_count}
+          </p>
+          <div>
+            <button
+              className="upvote-button"
+              onClick={() => upvote(article.article_id)}
+            >
+              {article.votes} 👍
+            </button>
+          </div>
         </div>
       </div>
       <CommentAdder setComments={setComments} />

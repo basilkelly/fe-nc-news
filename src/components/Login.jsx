@@ -58,7 +58,8 @@ const Login = () => {
   }, [hasUsersList]);
 
   return (
-    <div>
+    <div className="login">
+      <h2>Login</h2>
       <div>
         <p>{errorMessage.toString()}</p>
       </div>

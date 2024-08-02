@@ -19,16 +19,16 @@ const Topics = ({ setNewQuery }) => {
 
   return (
     <div>
-      <button value="all" onClick={handleClick}>
+      <button className="topic-button" value="all" onClick={handleClick}>
         All
       </button>
-      <button value="coding" onClick={handleClick}>
+      <button className="topic-button" value="coding" onClick={handleClick}>
         Coding
       </button>
-      <button value="cooking" onClick={handleClick}>
+      <button className="topic-button" value="cooking" onClick={handleClick}>
         Cooking
       </button>
-      <button value="football" onClick={handleClick}>
+      <button className="topic-button" value="football" onClick={handleClick}>
         Football
       </button>
     </div>

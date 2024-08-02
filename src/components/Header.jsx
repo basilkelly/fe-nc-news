@@ -6,12 +6,23 @@ const Header = () => {
   const [user] = useContext(UserContext);
   return (
     <div className="header">
-      <h1>NC NEWS</h1>
-      <p>logged in as {user && user.username ? user.username : "guest"}</p>
-      <nav>
-        <Link to="/">Home </Link>
-        <Link to="/articles">Articles </Link>
-        <Link to="/login">Login</Link>
+      <h1 className="header-title">
+        {" "}
+        <img src="header-globe-icon.png" width="35" height="35"></img> NC NEWS
+      </h1>
+      <p className="header-log-in">
+        Logged in as {user && user.username ? user.username : "guest"}
+      </p>
+      <nav className="header-nav-bar">
+        <Link className="header-nav" to="/">
+          Home
+        </Link>
+        <Link className="header-nav" to="/articles">
+          Articles
+        </Link>
+        <Link className="header-nav" to="/login">
+          Login
+        </Link>
       </nav>
     </div>
   );
