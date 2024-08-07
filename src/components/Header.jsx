@@ -8,7 +8,12 @@ const Header = () => {
     <div className="header">
       <h1 className="header-title">
         {" "}
-        <img src="header-globe-icon.png" width="35" height="35"></img> NC NEWS
+        <img
+          src="https://github.com/basilkelly/fe-nc-news/blob/main/header-globe-icon.png?raw=true"
+          width="35"
+          height="35"
+        ></img>{" "}
+        NC NEWS
       </h1>
       <p className="header-log-in">
         Logged in as {user && user.username ? user.username : "guest"}
@@ -27,6 +32,5 @@ const Header = () => {
     </div>
   );
 };
-
 
 export default Header;
